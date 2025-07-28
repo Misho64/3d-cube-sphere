@@ -3,59 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>John Emerson | Linktree</title>
-  <link rel="icon" href="https://avatars0.githubusercontent.com/u/43749971" type="image/x-icon" />
+  <title>My Profile</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
-  <!-- p5.js Library -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
 </head>
 <body>
-  <!-- 3D Background -->
+  <!-- خلفية تفاعلية -->
   <script src="background.js"></script>
 
-  <!-- Content -->
-  <a id="profilePicture" href="#popup">
-    <img src="https://avatars0.githubusercontent.com/u/43749971" alt="Profile Picture" />
-  </a>
-
-  <div class="overlay" id="popup">
-    <div class="popup">
-      <div class="popup-photo">
-        <a href="https://avatars0.githubusercontent.com/u/43749971" target="_blank">
-          <img src="https://avatars0.githubusercontent.com/u/43749971" alt="Profile Picture" />
-        </a>
-      </div>
-      <div class="popup-quote">
-        But... the sensation that I've lost something lingers for a long time after I wake up.
-      </div>
-      <a class="popup-close" onclick="history.back()">&times;</a>
+  <main>
+    <div id="profilePicture">
+      <img src="https://avatars0.githubusercontent.com/u/43749971" alt="Profile Picture" />
     </div>
-  </div>
 
-  <div id="userName">@johnggli</div>
+    <div id="userName">@johnggli</div>
 
-  <div id="links">
-    <a class="link" href="https://github.com/johnggli" target="_blank">
-      <i class="fab fa-github"></i> Github
-    </a>
-    <a class="link" href="https://www.linkedin.com/in/johnggli" target="_blank">
-      <i class="fab fa-linkedin"></i> Linkedin
-    </a>
-    <a class="link" href="https://www.facebook.com/johnggli" target="_blank">
-      <i class="fab fa-facebook"></i> Facebook
-    </a>
-    <a class="link" href="https://www.instagram.com/johnggli" target="_blank">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
-    <a class="link" href="https://twitter.com/johnggli" target="_blank">
-      <i class="fab fa-twitter"></i> Twitter
-    </a>
-    <a class="link" href="https://myanimelist.net/profile/johnggli" target="_blank">
-      <i class="fa fa-play-circle"></i> MyAnimeList
-    </a>
-  </div>
+    <div id="links">
+      <a class="link" href="https://github.com/johnggli" target="_blank"><i class="fab fa-github"></i> Github</a>
+      <a class="link" href="https://www.linkedin.com/in/johnggli" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a class="link" href="https://www.facebook.com/johnggli" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <a class="link" href="https://www.instagram.com/johnggli" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
 
-  <div id="hashtag">#BeHappy❤</div>
+    <div id="hashtag">#BeHappy❤</div>
+  </main>
 </body>
 </html>
