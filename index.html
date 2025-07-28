@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3D Cube Sphere - Responsive</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-    <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-      }
-      canvas {
-        display: block;
-      }
-    </style>
-  </head>
-  <body>
-    <script>
-      function setup() {
-        createCanvas(windowWidth, windowHeight, WEBGL);
-        angleMode(DEGREES);
-        strokeWeight(5);
-        noFill();
-        stroke(32, 8, 64);
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>John Emerson | Linktree</title>
+  <link rel="icon" href="https://avatars0.githubusercontent.com/u/43749971" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+  <!-- p5.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+</head>
+<body>
+  <!-- 3D Background -->
+  <script src="background.js"></script>
 
-      function draw() {
-        background(250, 180, 200);
-        orbitControl();
+  <!-- Content -->
+  <a id="profilePicture" href="#popup">
+    <img src="https://avatars0.githubusercontent.com/u/43749971" alt="Profile Picture" />
+  </a>
 
-        // ✅ مقياس الحجم حسب العرض
-        let s = map(windowWidth, 300, 1200, 0.5, 1);
-        scale(s);
+  <div class="overlay" id="popup">
+    <div class="popup">
+      <div class="popup-photo">
+        <a href="https://avatars0.githubusercontent.com/u/43749971" target="_blank">
+          <img src="https://avatars0.githubusercontent.com/u/43749971" alt="Profile Picture" />
+        </a>
+      </div>
+      <div class="popup-quote">
+        But... the sensation that I've lost something lingers for a long time after I wake up.
+      </div>
+      <a class="popup-close" onclick="history.back()">&times;</a>
+    </div>
+  </div>
 
-        for (let zAngle = 0; zAngle < 180; zAngle += 30) {
-          for (let xAngle = 0; xAngle < 360; xAngle += 30) {
-            push();
-            rotateZ(zAngle);
-            rotateX(xAngle);
-            // ✅ تحريك المكعبات بشكل ديناميكي حسب حجم الشاشة
-            translate(0, min(windowWidth, windowHeight) / 2.5, 0);
-            box();
-            pop();
-          }
-        }
-      }
+  <div id="userName">@johnggli</div>
 
-      function windowResized() {
-        resizeCanvas(windowWidth, windowHeight);
-      }
-    </script>
-  </body>
+  <div id="links">
+    <a class="link" href="https://github.com/johnggli" target="_blank">
+      <i class="fab fa-github"></i> Github
+    </a>
+    <a class="link" href="https://www.linkedin.com/in/johnggli" target="_blank">
+      <i class="fab fa-linkedin"></i> Linkedin
+    </a>
+    <a class="link" href="https://www.facebook.com/johnggli" target="_blank">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+    <a class="link" href="https://www.instagram.com/johnggli" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a class="link" href="https://twitter.com/johnggli" target="_blank">
+      <i class="fab fa-twitter"></i> Twitter
+    </a>
+    <a class="link" href="https://myanimelist.net/profile/johnggli" target="_blank">
+      <i class="fa fa-play-circle"></i> MyAnimeList
+    </a>
+  </div>
+
+  <div id="hashtag">#BeHappy❤</div>
+</body>
 </html>
