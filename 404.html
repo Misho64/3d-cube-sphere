@@ -2,88 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Notification Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Page Not Found</title>
   <style>
-    body {
+    html, body {
       margin: 0;
-      background-color: rgb(20, 20, 30);
-      color: white;
+      padding: 0;
+      overflow: hidden;
+      background-color: rgb(20, 20, 30); /* ✅ تم تعديل اللون هنا */
       font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
     }
 
-    #notification {
+    .centered-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .centered-text h1 {
+      font-size: 4rem;
+      margin: 0;
+    }
+
+    .centered-text p {
+      margin: 10px 0;
+    }
+
+    .centered-text a {
+      color: #7aaaff;
+      text-decoration: underline;
+    }
+
+    canvas {
       position: fixed;
-      top: 20px;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    /* Notification box */
+    .notification {
+      position: fixed;
+      top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #28a745;
+      background-color: #4CAF50;
       color: white;
-      padding: 16px 24px;
+      padding: 20px 30px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 10px #0005;
+      z-index: 2;
       display: none;
       min-width: 300px;
-      z-index: 9999;
+      text-align: left;
     }
 
-    #notification .close-btn {
+    .notification .close {
       position: absolute;
-      top: 8px;
-      right: 12px;
-      cursor: pointer;
+      top: 5px;
+      right: 10px;
       font-size: 20px;
-      color: white;
+      cursor: pointer;
     }
 
-    #progressBar {
+    .progress-bar {
+      height: 5px;
+      background: #fff;
       margin-top: 10px;
-      height: 6px;
-      background: white;
       border-radius: 3px;
       overflow: hidden;
     }
 
-    #progressFill {
+    .progress-bar-inner {
+      width: 0%;
       height: 100%;
-      width: 100%;
-      background: #155724;
-      animation: shrink 5s linear forwards;
+      background-color: #aaffaa;
+      animation: progress 5s linear forwards;
     }
 
-    @keyframes shrink {
-      from { width: 100%; }
-      to { width: 0%; }
+    @keyframes progress {
+      0% { width: 0%; }
+      100% { width: 100%; }
     }
   </style>
 </head>
 <body>
-
-  <div id="notification">
-    🎁 Discount code: <strong>SAVE10</strong>
-    <span class="close-btn" onclick="hideNotification()">✖</span>
-    <div id="progressBar">
-      <div id="progressFill"></div>
+  <!-- Notification -->
+  <div class="notification" id="notification">
+    <span class="close" onclick="closeNotification()">✖</span>
+    <strong>🎁 Discount code</strong>
+    <div class="progress-bar">
+      <div class="progress-bar-inner"></div>
     </div>
   </div>
 
+  <!-- Centered 404 text -->
+  <div class="centered-text">
+    <h1>404</h1>
+    <p>find</p>
+    <p>There is an error in the title that is being verified to return to the main page <a href="/">click here</a></p>
+  </div>
+
+  <!-- p5.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.min.js"></script>
+
   <script>
-    function showNotification() {
-      const notif = document.getElementById("notification");
-      notif.style.display = "block";
-
-      // Auto-hide after 5 seconds
-      setTimeout(hideNotification, 5000);
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      colorMode(HSB);
+      angleMode(DEGREES);
     }
 
-    function hideNotification() {
-      const notif = document.getElementById("notification");
-      notif.style.display = "none";
+    function draw() {
+      background(0); // ← نستخدم هنا خلفية شفافة لأن الخلفية مضبوطة من الـ CSS
+
+      // Left eye
+      let leftX = width / 2 - 100;
+      let leftY = height / 2;
+      let leftAngle = atan2(mouseY - leftY, mouseX - leftX);
+      push();
+      translate(leftX, leftY);
+      fill(255);
+      ellipse(0, 0, 50, 50);
+      rotate(leftAngle);
+      fill(0);
+      ellipse(12.5, 0, 25, 25);
+      pop();
+
+      // Right eye
+      let rightX = width / 2 + 100;
+      let rightY = height / 2;
+      let rightAngle = atan2(mouseY - rightY, mouseX - rightX);
+      push();
+      translate(rightX, rightY);
+      fill(255);
+      ellipse(0, 0, 50, 50);
+      rotate(rightAngle);
+      fill(0);
+      ellipse(12.5, 0, 25, 25);
+      pop();
     }
 
-    // Show after 2 seconds
-    setTimeout(showNotification, 2000);
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+
+    // Notification logic
+    setTimeout(() => {
+      const note = document.getElementById("notification");
+      note.style.display = "block";
+      setTimeout(() => {
+        note.style.display = "none";
+      }, 5000); // 5s after shown
+    }, 2000); // 2s delay
+
+    function closeNotification() {
+      document.getElementById("notification").style.display = "none";
+    }
   </script>
-
 </body>
 </html>
