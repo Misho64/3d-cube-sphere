@@ -2,26 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>John Emerson | Linktree</title>
-
-    <!-- Favicon -->
     <link rel="icon" href="https://avatars0.githubusercontent.com/u/43749971" type="image/x-icon" />
-
-    <!-- Font Awesome icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
-
-    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="background.js" defer></script>
   </head>
-
   <body>
-    <!-- Profile Picture -->
+    <canvas id="defaultCanvas0" class="p5Canvas"></canvas>
+
     <a id="profilePicture" href="#popup">
       <img src="https://avatars0.githubusercontent.com/u/43749971" alt="Profile Picture" />
     </a>
 
-    <!-- Popup -->
     <div class="overlay" id="popup">
       <div class="popup">
         <div class="popup-photo">
@@ -36,10 +30,8 @@
       </div>
     </div>
 
-    <!-- Username -->
     <div id="userName">@johnggli</div>
 
-    <!-- Links -->
     <div id="links">
       <a class="link" href="https://github.com/johnggli" target="_blank"><i class="fab fa-github"></i> Github</a>
       <a class="link" href="https://www.linkedin.com/in/johnggli" target="_blank"><i class="fab fa-linkedin"></i> Linkedin</a>
@@ -49,11 +41,6 @@
       <a class="link" href="https://myanimelist.net/profile/johnggli" target="_blank"><i class="fa fa-play-circle"></i> MyAnimeList</a>
     </div>
 
-    <!-- Hashtag -->
     <div id="hashtag">#BeHappy❤</div>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-    <script src="background.js"></script>
   </body>
 </html>
