@@ -56,3 +56,17 @@ canvas {
 .popup {
   color: black;
 }
+body, html {
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+#userName, #links, #hashtag, .popup, .overlay {
+  position: relative;
+  z-index: 1;
+}
+
+#links {
+  max-width: 100%;
+  overflow-x: hidden;
+}
