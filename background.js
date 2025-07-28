@@ -1,25 +1,26 @@
 function setup() {
-  let cnv = createCanvas(windowWidth, windowHeight, WEBGL);
-  cnv.position(0, 0);
-  cnv.style('z-index', '-1');
-  noFill();
-  stroke(255, 100);
-  strokeWeight(1);
+  let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+  canvas.position(0, 0);
+  canvas.style('z-index', '-1');
+  canvas.style('position', 'fixed');
   angleMode(DEGREES);
+  strokeWeight(2);
+  noFill();
+  stroke(160, 100, 255); // لون بنفسجي ناعم
 }
 
 function draw() {
-  background(15, 15, 30);
-  rotateY(frameCount * 0.2);
-  for (let i = 0; i < 200; i++) {
-    push();
-    rotateX(sin(frameCount * 0.5 + i) * 100);
-    translate(200, 0, 0);
-    box(5);
-    pop();
-  }
-}
+  background(0, 0, 0, 0); // خلفية شفافة
+  orbitControl();
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  for (let z = 0; z < 180; z += 30) {
+    for (let x = 0; x < 360; x += 30) {
+      push();
+      rotateZ(z);
+      rotateX(x);
+      translate(0, 300, 0);
+      box(10); // شكل المكعب
+      pop();
+    }
+  }
 }
