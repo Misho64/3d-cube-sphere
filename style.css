@@ -1,62 +1,78 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: transparent;
+/* إعدادات عامة */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  text-align: center;
+}
+body, html {
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
+  font-family: 'Arial', sans-serif;
+  background: transparent;
+  position: relative;
   color: white;
+}
+
+/* تنسيق المحتوى */
+main {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
 }
 
 #profilePicture img {
   width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: 4px solid #fff;
-  margin-top: 2rem;
-  z-index: 1;
-  position: relative;
+  border: 3px solid white;
+  margin-bottom: 1rem;
 }
 
 #userName {
-  margin-top: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  z-index: 1;
-  position: relative;
+  margin-bottom: 1rem;
 }
 
 #links {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 2rem;
-  padding: 0 1rem;
-  z-index: 1;
-  position: relative;
+  width: 100%;
+  max-width: 300px;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .link {
-  text-decoration: none;
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.75rem;
   border-radius: 30px;
-  font-size: 1.2rem;
-  transition: 0.3s;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.3s;
 }
 
 .link:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 #hashtag {
   margin-top: 2rem;
-  font-size: 1.1rem;
   font-style: italic;
-  z-index: 1;
-  position: relative;
+  font-size: 1rem;
 }
 
-.popup, .overlay {
-  z-index: 2;
+/* إصلاح الخلفية */
+canvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
