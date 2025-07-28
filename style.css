@@ -1,78 +1,87 @@
-/* إعدادات عامة */
-* {
-  box-sizing: border-box;
+body {
   margin: 0;
   padding: 0;
-}
-body, html {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  font-family: 'Arial', sans-serif;
   background: transparent;
-  position: relative;
+  font-family: Arial, sans-serif;
   color: white;
-}
-
-/* تنسيق المحتوى */
-main {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1rem;
-  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
 }
 
 #profilePicture img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 3px solid white;
-  margin-bottom: 1rem;
+  margin-top: 20px;
+  border: 4px solid white;
 }
 
 #userName {
-  font-size: 1.4rem;
+  margin: 10px 0;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 1rem;
 }
 
 #links {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 300px;
-  gap: 1rem;
-  margin-top: 1rem;
+  align-items: center;
+  margin: 20px;
 }
 
 .link {
-  background-color: rgba(255, 255, 255, 0.15);
-  padding: 0.75rem;
-  border-radius: 30px;
-  text-align: center;
+  background-color: #ffffff20;
   color: white;
+  padding: 12px 20px;
+  margin: 8px;
+  border-radius: 8px;
   text-decoration: none;
-  font-size: 1.1rem;
+  width: 250px;
   transition: background 0.3s;
 }
 
 .link:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: #ffffff40;
 }
 
 #hashtag {
-  margin-top: 2rem;
-  font-style: italic;
-  font-size: 1rem;
+  margin-top: 20px;
+  font-size: 18px;
+  opacity: 0.8;
 }
 
-/* إصلاح الخلفية */
-canvas {
-  position: fixed !important;
+.overlay {
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000cc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.popup {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.popup-photo img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  text-decoration: none;
+  color: red;
 }
