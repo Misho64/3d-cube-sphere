@@ -10,6 +10,9 @@
         margin: 0;
         overflow: hidden;
       }
+      canvas {
+        display: block;
+      }
     </style>
   </head>
   <body>
@@ -26,12 +29,17 @@
         background(250, 180, 200);
         orbitControl();
 
+        // ✅ مقياس الحجم حسب العرض
+        let s = map(windowWidth, 300, 1200, 0.5, 1);
+        scale(s);
+
         for (let zAngle = 0; zAngle < 180; zAngle += 30) {
           for (let xAngle = 0; xAngle < 360; xAngle += 30) {
             push();
             rotateZ(zAngle);
             rotateX(xAngle);
-            translate(0, 400, 0);
+            // ✅ تحريك المكعبات بشكل ديناميكي حسب حجم الشاشة
+            translate(0, min(windowWidth, windowHeight) / 2.5, 0);
             box();
             pop();
           }
