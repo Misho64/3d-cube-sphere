@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-color: rgb(20, 20, 30); /* ✅ تم تعديل اللون هنا */
+      background-color: rgb(20, 20, 30);
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
@@ -94,7 +94,8 @@
   <!-- Notification -->
   <div class="notification" id="notification">
     <span class="close" onclick="closeNotification()">✖</span>
-    <strong>🎁 Discount code</strong>
+    <strong>Discount code:</strong>
+    <span style="font-weight: bold; background: #ffffff22; padding: 2px 6px; border-radius: 4px;">SAVE10</span>
     <div class="progress-bar">
       <div class="progress-bar-inner"></div>
     </div>
@@ -118,12 +119,14 @@
     }
 
     function draw() {
-      background(0); // ← نستخدم هنا خلفية شفافة لأن الخلفية مضبوطة من الـ CSS
+      background(20, 20, 30);
 
       // Left eye
       let leftX = width / 2 - 100;
       let leftY = height / 2;
+
       let leftAngle = atan2(mouseY - leftY, mouseX - leftX);
+
       push();
       translate(leftX, leftY);
       fill(255);
@@ -136,7 +139,9 @@
       // Right eye
       let rightX = width / 2 + 100;
       let rightY = height / 2;
+
       let rightAngle = atan2(mouseY - rightY, mouseX - rightX);
+
       push();
       translate(rightX, rightY);
       fill(255);
@@ -157,8 +162,8 @@
       note.style.display = "block";
       setTimeout(() => {
         note.style.display = "none";
-      }, 5000); // 5s after shown
-    }, 2000); // 2s delay
+      }, 7000); // 7s total (2s delay + 5s display)
+    }, 2000);
 
     function closeNotification() {
       document.getElementById("notification").style.display = "none";
