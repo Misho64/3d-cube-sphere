@@ -3,11 +3,11 @@ function setup() {
   angleMode(DEGREES);
   strokeWeight(5);
   noFill();
-  stroke(32, 8, 64);
+  stroke(120, 200, 255);
 }
 
 function draw() {
-  background(250, 180, 200);
+  background(20, 20, 30);
   orbitControl();
 
   for (let zAngle = 0; zAngle < 180; zAngle += 30) {
