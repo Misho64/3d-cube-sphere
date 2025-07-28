@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-color: rgb(20, 20, 30);
+      background-color: rgb(20, 20, 30); /* خلفية عامة للصفحة */
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
@@ -44,7 +44,6 @@
       z-index: 0;
     }
 
-    /* Notification box */
     .notification {
       position: fixed;
       top: 10px;
@@ -114,19 +113,17 @@
   <script>
     function setup() {
       createCanvas(windowWidth, windowHeight);
-      colorMode(HSB);
       angleMode(DEGREES);
+      noStroke();
     }
 
     function draw() {
-      background(20, 20, 30);
+      background(20, 20, 30); // ✅ خلفية p5.js باللون الصحيح
 
       // Left eye
       let leftX = width / 2 - 100;
       let leftY = height / 2;
-
       let leftAngle = atan2(mouseY - leftY, mouseX - leftX);
-
       push();
       translate(leftX, leftY);
       fill(255);
@@ -139,9 +136,7 @@
       // Right eye
       let rightX = width / 2 + 100;
       let rightY = height / 2;
-
       let rightAngle = atan2(mouseY - rightY, mouseX - rightX);
-
       push();
       translate(rightX, rightY);
       fill(255);
@@ -156,13 +151,12 @@
       resizeCanvas(windowWidth, windowHeight);
     }
 
-    // Notification logic
     setTimeout(() => {
       const note = document.getElementById("notification");
       note.style.display = "block";
       setTimeout(() => {
         note.style.display = "none";
-      }, 7000); // 7s total (2s delay + 5s display)
+      }, 7000);
     }, 2000);
 
     function closeNotification() {
