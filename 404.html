@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>404 - Page Not Found</title>
   <style>
     html, body {
@@ -43,16 +43,73 @@
       left: 0;
       z-index: 0;
     }
+
+    /* Notification box */
+    .notification {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #0005;
+      z-index: 2;
+      display: none;
+      min-width: 300px;
+      text-align: left;
+    }
+
+    .notification .close {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .progress-bar {
+      height: 5px;
+      background: #fff;
+      margin-top: 10px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-bar-inner {
+      width: 0%;
+      height: 100%;
+      background-color: #aaffaa;
+      animation: progress 5s linear forwards;
+    }
+
+    @keyframes progress {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
   </style>
 </head>
 <body>
+  <!-- Notification -->
+  <div class="notification" id="notification">
+    <span class="close" onclick="closeNotification()">✖</span>
+    <strong>Discount code</strong>
+    <div class="progress-bar">
+      <div class="progress-bar-inner"></div>
+    </div>
+  </div>
+
+  <!-- Centered 404 text -->
   <div class="centered-text">
     <h1>404</h1>
     <p>find</p>
     <p>There is an error in the title that is being verified to return to the main page <a href="/">click here</a></p>
   </div>
 
+  <!-- p5.js Library -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.min.js"></script>
+
   <script>
     function setup() {
       createCanvas(windowWidth, windowHeight);
@@ -61,9 +118,9 @@
     }
 
     function draw() {
-      background(20, 20, 23); // الخلفية
+      background(20, 20, 23);
 
-      // العين اليسرى
+      // Left eye
       let leftX = width / 2 - 100;
       let leftY = height / 2;
 
@@ -78,7 +135,7 @@
       ellipse(12.5, 0, 25, 25);
       pop();
 
-      // العين اليمنى
+      // Right eye
       let rightX = width / 2 + 100;
       let rightY = height / 2;
 
@@ -96,6 +153,19 @@
 
     function windowResized() {
       resizeCanvas(windowWidth, windowHeight);
+    }
+
+    // Notification logic
+    setTimeout(() => {
+      const note = document.getElementById("notification");
+      note.style.display = "block";
+      setTimeout(() => {
+        note.style.display = "none";
+      }, 7000); // 7s total (2s delay + 5s display)
+    }, 2000);
+
+    function closeNotification() {
+      document.getElementById("notification").style.display = "none";
     }
   </script>
 </body>
