@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 Not Found</title>
+  <title>404 - Page Not Found</title>
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
+      background-color: rgb(20, 20, 23);
+      font-family: Arial, sans-serif;
       color: white;
       text-align: center;
     }
 
-    #text-container {
+    .centered-text {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -22,56 +23,72 @@
       z-index: 1;
     }
 
-    #text-container h1 {
-      font-size: 5rem;
+    .centered-text h1 {
+      font-size: 4rem;
       margin: 0;
     }
 
-    #text-container p {
-      margin: 8px 0;
-      font-size: 1.2rem;
+    .centered-text p {
+      margin: 10px 0;
     }
 
-    a {
-      color: #7fbfff;
+    .centered-text a {
+      color: #7aaaff;
       text-decoration: underline;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
     }
   </style>
 </head>
 <body>
-  <div id="text-container">
+  <div class="centered-text">
     <h1>404</h1>
     <p>find</p>
-    <p>
-      There is an error in the title that is being verified to return to 
-      the main page 
-      <a href="index.html"> (click here) </a>
-    </p>
+    <p>There is an error in the title that is being verified to return to the main page <a href="/">click here</a></p>
   </div>
 
-  <!-- مكتبة p5.js -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.min.js"></script>
   <script>
     function setup() {
       createCanvas(windowWidth, windowHeight);
-      colorMode(RGB);
+      colorMode(HSB);
       angleMode(DEGREES);
     }
 
     function draw() {
-      background(20, 20, 30);
+      background(20, 20, 23); // الخلفية
 
-      drawEye(150, height / 2);
-      drawEye(width - 150, height / 2);
-    }
+      // العين اليسرى
+      let leftX = width / 2 - 100;
+      let leftY = height / 2;
 
-    function drawEye(x, y) {
-      let angle = atan2(mouseY - y, mouseX - x);
+      let leftAngle = atan2(mouseY - leftY, mouseX - leftX);
+
       push();
-      translate(x, y);
+      translate(leftX, leftY);
       fill(255);
       ellipse(0, 0, 50, 50);
-      rotate(angle);
+      rotate(leftAngle);
+      fill(0);
+      ellipse(12.5, 0, 25, 25);
+      pop();
+
+      // العين اليمنى
+      let rightX = width / 2 + 100;
+      let rightY = height / 2;
+
+      let rightAngle = atan2(mouseY - rightY, mouseX - rightX);
+
+      push();
+      translate(rightX, rightY);
+      fill(255);
+      ellipse(0, 0, 50, 50);
+      rotate(rightAngle);
       fill(0);
       ellipse(12.5, 0, 25, 25);
       pop();
